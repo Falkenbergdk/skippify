@@ -1,18 +1,22 @@
-Skippify PWA v2
+Skippify PWA v3
 
-NYT:
-- 4-trins velkomst/onboarding
-- Vises automatisk første gang
-- Kan springes over
-- 'Se introduktionen igen' under Mig
-- Eksisterende scrolling, frit Andet-beløb, skip-pulje og Sunday Invest er bevaret
+NYT I V3
+- Rettet PWA-cache så index.html altid forsøges hentet frisk fra GitHub Pages
+- Gammel cache ryddes automatisk ved ny service worker
+- skipWaiting + clients.claim gør opdateringer hurtigere aktive
+- Appen virker stadig offline som fallback
 
-OPDATER GITHUB PAGES:
-Upload/erstat index.html og sw.js i dit eksisterende repo.
-De øvrige filer kan blive liggende uændret.
+OPDATER GITHUB
+Erstat disse filer i dit eksisterende repo:
+- index.html
+- sw.js
 
-Hvis GitHub spørger, vælg Commit changes.
-Pages opdaterer normalt automatisk kort efter commit.
+Commit ændringerne.
 
-På telefonen kan en installeret PWA nogle gange cache den gamle version.
-Luk appen helt og åbn igen. Hvis nødvendigt: åbn GitHub Pages-linket i Safari først og genindlæs.
+Efter GitHub Pages har deployet:
+1. Åbn GitHub Pages-linket i Safari én gang.
+2. Genindlæs siden.
+3. Luk Skippify fra appskifteren.
+4. Åbn Skippify fra hjemmeskærmen igen.
+
+Fremover bør nye commits slå igennem langt hurtigere uden at du skal kæmpe med gammel app-cache.
