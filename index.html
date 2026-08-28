@@ -29,9 +29,65 @@ h1{margin:0;font-size:28px}.big{font-size:48px;font-weight:800}.small{font-size:
 .energy{position:absolute;left:50%;top:270px;transform:translateX(-50%);width:140px;height:46px;border-radius:50%;background:radial-gradient(ellipse,rgba(30,215,96,.82),rgba(30,215,96,.20) 45%,transparent 72%);opacity:0}.energy.on{animation:e 1s ease forwards}@keyframes e{0%{opacity:0;transform:translateX(-50%) scale(.45)}40%{opacity:1;transform:translateX(-50%) scale(1.18)}100%{opacity:.2;transform:translateX(-50%) scale(.98)}}
 .chart{position:absolute;inset:54px 0 0;opacity:0;transform:translateY(28px)}.chart.show{animation:ci .75s ease forwards}@keyframes ci{to{opacity:1;transform:none}}.line{stroke-dasharray:700;stroke-dashoffset:700}.chart.draw .line{animation:dl 1.7s ease forwards}@keyframes dl{to{stroke-dashoffset:0}}
 .area{opacity:0}.chart.draw .area{animation:ai 1.2s ease .35s forwards}@keyframes ai{to{opacity:1}}svg{width:100%;height:auto;display:block}
+
+.onboarding{position:fixed;inset:0;z-index:200;background:#050706;color:#1ed760;display:none;overflow:hidden}
+.onboarding.show{display:block}
+.onboard-slide{position:absolute;inset:0;padding:calc(38px + env(safe-area-inset-top,0px)) 24px calc(34px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;opacity:0;transform:translateX(28px);pointer-events:none;transition:opacity .28s ease,transform .28s ease}
+.onboard-slide.active{opacity:1;transform:none;pointer-events:auto}
+.onboard-skip{position:absolute;right:22px;top:calc(18px + env(safe-area-inset-top,0px));z-index:3;border:0;background:transparent;color:#78d995;font-weight:700;padding:10px}
+.onboard-visual{height:44vh;min-height:260px;max-height:390px;display:flex;align-items:center;justify-content:center;position:relative}
+.onboard-orb{width:190px;height:190px;border-radius:50%;border:1px solid #245c32;background:radial-gradient(circle at 50% 45%,rgba(30,215,96,.18),rgba(30,215,96,.03) 55%,transparent 70%);display:flex;align-items:center;justify-content:center;font-size:72px}
+.onboard-money{font-size:58px;font-weight:900;letter-spacing:-2px;text-shadow:0 0 32px rgba(30,215,96,.18)}
+.onboard-title{font-size:34px;line-height:1.03;letter-spacing:-1px;margin:0;max-width:360px}
+.onboard-copy{font-size:17px;line-height:1.45;color:#78d995;margin-top:12px;max-width:390px}
+.onboard-bottom{margin-top:auto}
+.onboard-dots{display:flex;gap:7px;justify-content:center;margin-bottom:18px}
+.onboard-dot{width:7px;height:7px;border-radius:999px;background:#244c2e;transition:width .2s ease,background .2s ease}
+.onboard-dot.active{width:24px;background:#1ed760}
+.onboard-next{width:100%;height:58px;border:0;border-radius:18px;background:#1ed760;color:#020b04;font-weight:850;font-size:16px}
+.onboard-mini{display:flex;gap:9px;align-items:center;justify-content:center}
+.onboard-mini span{display:inline-flex;width:58px;height:58px;border-radius:50%;background:#1ed760;color:#020b04;align-items:center;justify-content:center;font-size:11px;font-weight:900;box-shadow:0 0 22px rgba(30,215,96,.15)}
+.onboard-arrow{font-size:30px;color:#1ed760}
+.reintro{width:100%;min-height:52px;margin-top:12px;background:transparent;border:1px solid #276b38;color:#1ed760;border-radius:16px;font-weight:750}
+
 </style>
 </head>
 <body>
+
+<div id="onboarding" class="onboarding" aria-label="Velkommen til Skippify">
+  <button id="onboardSkip" class="onboard-skip" type="button">Spring over</button>
+
+  <section class="onboard-slide active" data-step="0">
+    <div class="onboard-visual"><div class="onboard-orb">👋</div></div>
+    <h1 class="onboard-title">Velkommen til<br>Skippify.</h1>
+    <p class="onboard-copy">Små valg i hverdagen kan blive til noget større. Skippify gør det nemt at vælge din fremtid lidt oftere.</p>
+    <div class="onboard-bottom"><div class="onboard-dots"></div><button class="onboard-next" type="button">Vis mig hvordan</button></div>
+  </section>
+
+  <section class="onboard-slide" data-step="1">
+    <div class="onboard-visual"><div class="onboard-orb">☕</div></div>
+    <h1 class="onboard-title">Skip det,<br>du ikke behøver.</h1>
+    <p class="onboard-copy">Droppede du kaffen, takeaway eller impulskøbet? Registrér beløbet med ét tryk.</p>
+    <div class="onboard-bottom"><div class="onboard-dots"></div><button class="onboard-next" type="button">Næste</button></div>
+  </section>
+
+  <section class="onboard-slide" data-step="2">
+    <div class="onboard-visual">
+      <div class="onboard-mini"><span>45 kr</span><div class="onboard-arrow">→</div><span>120 kr</span><div class="onboard-arrow">→</div><span>385 kr</span></div>
+    </div>
+    <h1 class="onboard-title">Se dine små<br>valg samle sig.</h1>
+    <p class="onboard-copy">Dine skips samles gennem ugen, så du hele tiden kan se, hvor meget du har valgt at sende videre til dig selv.</p>
+    <div class="onboard-bottom"><div class="onboard-dots"></div><button class="onboard-next" type="button">Næste</button></div>
+  </section>
+
+  <section class="onboard-slide" data-step="3">
+    <div class="onboard-visual"><div class="onboard-money">385 kr ↗</div></div>
+    <h1 class="onboard-title">Søndag bliver<br>valgene til investering.</h1>
+    <p class="onboard-copy">Sunday Invest samler ugens skips og gør dem klar til investering. Ét lille ritual. Hver uge.</p>
+    <div class="onboard-bottom"><div class="onboard-dots"></div><button class="onboard-next" type="button">Kom i gang</button></div>
+  </section>
+</div>
+
 <div class="app">
 <div id="celebrate" class="celebrate"></div>
 <section id="today" class="view active">
@@ -57,12 +113,26 @@ h1{margin:0;font-size:28px}.big{font-size:48px;font-weight:800}.small{font-size:
 <div id="done" class="investDone" style="text-align:center"><div style="width:82px;height:82px;border-radius:50%;margin:28px auto 0;background:#1ed760;color:#020b04;display:grid;place-items:center;font-size:40px;font-weight:900">✓</div><h1 style="margin-top:14px">Sådan! 🎉</h1><div style="font-size:34px;font-weight:800">385 kr investeret</div><div class="small muted">Ugens små valg arbejder nu for din fremtid.</div><button id="replay" class="greenbtn" style="margin-top:18px">Se animationen igen</button></div>
 </section>
 
-<section id="me" class="view"><div class="small muted">Profil</div><h1>Mit Skippify</h1><div class="card" style="padding:18px;margin-top:20px"><b>Michael</b><div class="small muted">Skippify siden uge 31</div></div><div class="card" style="padding:16px;margin-top:12px"><div class="row"><span>Ugemål</span><b>300 kr</b></div></div><div class="card" style="padding:16px;margin-top:12px"><div class="row"><span>Streak</span><b>5 uger 🔥</b></div></div></section>
+<section id="me" class="view"><div class="small muted">Profil</div><h1>Mit Skippify</h1><div class="card" style="padding:18px;margin-top:20px"><b>Michael</b><div class="small muted">Skippify siden uge 31</div></div><div class="card" style="padding:16px;margin-top:12px"><div class="row"><span>Ugemål</span><b>300 kr</b></div></div><div class="card" style="padding:16px;margin-top:12px"><div class="row"><span>Streak</span><b>5 uger 🔥</b></div></div><button id="showIntro" class="reintro" type="button">Se introduktionen igen</button></section>
 
 <nav class="nav"><button class="navbtn active" data-target="today">⌂<span>I dag</span></button><button class="navbtn" data-target="growth">↗<span>Udvikling</span></button><button class="navbtn" data-target="invest">◎<span>Investér</span></button><button class="navbtn" data-target="me">○<span>Mig</span></button></nav>
 </div>
 <script>
-(()=>{let pool=Number(localStorage.getItem('skippify_pool')||185),last=null,timers=[];const $=q=>document.querySelector(q),views=[...document.querySelectorAll('.view')],nav=[...document.querySelectorAll('.navbtn')];const money=n=>new Intl.NumberFormat('da-DK',{maximumFractionDigits:0}).format(n)+' kr';
+(()=>{
+const onboarding=document.querySelector('#onboarding'),slides=[...document.querySelectorAll('.onboard-slide')];
+let onboardStep=0;
+function renderOnboarding(){
+  slides.forEach((s,i)=>{s.classList.toggle('active',i===onboardStep);const dots=s.querySelector('.onboard-dots');if(dots){dots.innerHTML=slides.map((_,j)=>'<span class="onboard-dot '+(j===onboardStep?'active':'')+'"></span>').join('')}});
+  document.querySelector('#onboardSkip').style.display=onboardStep===slides.length-1?'none':'block';
+}
+function finishOnboarding(){localStorage.setItem('skippify_onboarded','1');onboarding.classList.remove('show');document.body.style.overflow='';}
+function showOnboarding(){onboardStep=0;renderOnboarding();onboarding.classList.add('show');document.body.style.overflow='hidden';}
+document.querySelectorAll('.onboard-next').forEach(b=>b.addEventListener('click',()=>{if(onboardStep<slides.length-1){onboardStep++;renderOnboarding()}else finishOnboarding()}));
+document.querySelector('#onboardSkip').addEventListener('click',finishOnboarding);
+document.querySelector('#showIntro')?.addEventListener('click',showOnboarding);
+if(localStorage.getItem('skippify_onboarded')!=='1') showOnboarding();
+renderOnboarding();
+let pool=Number(localStorage.getItem('skippify_pool')||185),last=null,timers=[];const $=q=>document.querySelector(q),views=[...document.querySelectorAll('.view')],nav=[...document.querySelectorAll('.navbtn')];const money=n=>new Intl.NumberFormat('da-DK',{maximumFractionDigits:0}).format(n)+' kr';
 nav.forEach(b=>b.addEventListener('click',()=>{views.forEach(v=>v.classList.toggle('active',v.id===b.dataset.target));nav.forEach(n=>n.classList.toggle('active',n===b));scrollTo({top:0,behavior:'smooth'})}));
 function update(){$('#pool').textContent=money(pool);let p=Math.min(100,Math.round(pool/300*100));$('#bar').style.width=p+'%';$('#pct').textContent=p+'% af 300 kr';let a=Math.max(pool,1)*52,r=.05,y=5,f=a*((Math.pow(1+r,y)-1)/r);$('#future').textContent='≈ '+money(Math.round(f/100)*100)+' om 5 år';localStorage.setItem('skippify_pool',pool)}
 function pop(v){for(let i=0;i<7;i++){let s=document.createElement('span');s.className='p';s.textContent=i?'kr':'+'+money(v);s.style.setProperty('--x',(-90+i*30)+'px');s.style.setProperty('--y',(-70-Math.abs(3-i)*16)+'px');$('#celebrate').appendChild(s);setTimeout(()=>s.remove(),850)}}
