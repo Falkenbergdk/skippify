@@ -1,4 +1,4 @@
-const CACHE='skippify-v3';
+const CACHE='skippify-v4';
 const STATIC=['./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install', event => {
