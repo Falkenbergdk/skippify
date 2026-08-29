@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#062d1d">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -52,6 +52,31 @@ h1{margin:0;font-size:28px}.big{font-size:48px;font-weight:800}.small{font-size:
 .onboard-mini span{display:inline-flex;width:58px;height:58px;border-radius:50%;background:#1ed760;color:#073515;align-items:center;justify-content:center;font-size:11px;font-weight:900;box-shadow:0 0 22px rgba(30,215,96,.15)}
 .onboard-arrow{font-size:30px;color:#1ed760}
 .reintro{width:100%;min-height:52px;margin-top:12px;background:transparent;border:1px solid #9ddfb0;color:#1ed760;border-radius:16px;font-weight:750}
+
+
+/* v5: deep green canvas + white cards */
+:root{--sk-bg:#062d1d;--sk-white:#fff;--sk-green:#16c95f;--sk-dark:#0a6f3b;--sk-soft:#dff6e8;--sk-border:#bfe8cf}
+html,body{background:var(--sk-bg)!important}
+header{background:var(--sk-bg)!important}
+header *, .page>h1,.page>h2,.page>p{color:var(--sk-green)!important}
+.card,.skip,.metric,.panel,.future,.invest-card,.profile-card,[class*="card"],[class*="tile"]{background:#fff!important;border-color:var(--sk-border)!important;color:var(--sk-dark)!important}
+.card *,.skip *,.metric *,.panel *,.future *,.invest-card *,.profile-card *,[class*="card"] *,[class*="tile"] *{color:var(--sk-dark)!important}
+.card strong,.skip strong,.future strong,.metric strong,[class*="card"] strong,[class*="tile"] strong{color:var(--sk-green)!important}
+.progress,.track,[class*="progress"]{background:var(--sk-soft)!important}
+.progress>*,.track>*,[class*="progress"]>*{background:var(--sk-green)!important}
+.nav,nav{background:#fff!important;border-color:var(--sk-border)!important}
+.nav button,nav button{color:var(--sk-dark)!important;background:transparent!important}
+.nav button.active,nav button.active{background:var(--sk-green)!important;color:#06351d!important}
+.nav button.active *,nav button.active *{color:#06351d!important}
+button.primary,.primary,.onboard-next{background:var(--sk-green)!important;color:#06351d!important}
+input{background:#fff!important;color:var(--sk-dark)!important;border-color:var(--sk-border)!important}
+.onboarding{background:var(--sk-bg)!important}
+.onboard-title{color:var(--sk-green)!important}
+.onboard-copy,.onboard-skip{color:#8ee8ae!important}
+.onboard-orb{background:#fff!important;border-color:var(--sk-border)!important}
+.onboard-money{color:var(--sk-green)!important}
+.onboard-dot{background:#2c6b4a!important}.onboard-dot.active{background:var(--sk-green)!important}
+.coin{background:var(--sk-green)!important;color:#06351d!important}
 
 </style>
 </head>
